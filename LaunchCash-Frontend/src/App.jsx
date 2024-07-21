@@ -1,12 +1,15 @@
-import React from "react";
+import { useState } from "react";
 import './App.css';
+import Hello from "./Components/Hello";
 
 function App() {
   return (
-    <div>
-      <h1>Hello, world!</h1>
-    </div>
-  );
+    <>
+      <div>
+        <Hello />
+      </div>
+    </>
+  )
 }
 
 export default App;
