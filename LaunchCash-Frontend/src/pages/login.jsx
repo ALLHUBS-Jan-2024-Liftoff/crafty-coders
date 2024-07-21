@@ -1,24 +1,34 @@
 import React from 'react'
+//import './assets/login'
 
-//Code for Sign in page
-export const login = () => {
+//Code for Login page
+export const Login = () => {
   return (
-    <div className="container">
-      <div className="header">
-        <div className="text">Sign Up</div>
-        <div className="underline"></div>
-      </div>
-      <div className="inputs">
-        <div className="input">
-          <input type="text" />
+    <div className='wrapper'>
+      <form action=''>
+        <h1>Login</h1>
+        <div className='input-box'>
+          <input type="text" placeholder='Username' required/>
         </div>
-        <div className="input">
-          <input type="text" />
+        <div className='input-box'>
+          <input type="password" placeholder='Password' required/>
         </div>
-      </div>
+
+        {/* Links do not work yet. */}
+        <div className='remember-forgot'>
+          <label><input type='checkbox' />Remember me</label>
+          <a href='#'>Forgot password?</a>
+        </div>
+
+        <button type='submit'>Login</button>
+
+        <div className="register-link">
+          <p>Don't have an account? <a href='#'>Register</a></p>
+        </div>
+      </form>
     </div>
     
   )
 }
 
-export default login;
+export default Login;
