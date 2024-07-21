@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: head}"></head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="container mt-5">
+    <h2 th:text="${activity.id == null} ? 'Add New Activity' : 'Edit Activity'" class="mb-3">Activity Form</h2>
+    <form th:action="@{/activities}" th:object="${activity}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <input type="text" id="type" th:field="*{type}" class="form-control">
+            <small class="text-danger" th:errors="*{type}"></small>
+        </div>
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" id="duration" th:field="*{duration}" class="form-control">
+            <small class="text-danger" th:errors="*{duration}"></small>
+        </div>
+        <div class="form-group">
+            <label for="caloriesBurned">Calories Burned:</label>
+            <input type="text" id="caloriesBurned" th:field="*{caloriesBurned}" class="form-control">
+            <small class="text-danger" th:errors="*{caloriesBurned}"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="profile">Profile:</label>
+            <select id="profile" th:field="*{profile}" class="form-control">
+                <option th:each="profile : ${profiles}" th:value="${profile.id}" th:text="${profile.user.username}">
+                    Profile
+                </option>
+            </select>
+            <small class="text-danger" th:errors="*{profile}"></small>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <select id="tags" multiple th:field="*{tags}" class="form-control">
+                <option th:each="tag : ${tags}" th:value="${tag.id}" th:text="${tag.name}">Tag</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
