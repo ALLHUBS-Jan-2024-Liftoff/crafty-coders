@@ -21,7 +21,7 @@ public class Transaction {
 
     private String receiver;
     private float amount;
-// add a date or something to track
+// add a date or something to track the transactions for each one
 
 
 
