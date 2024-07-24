@@ -8,12 +8,16 @@ const LoginRegister = () => {
   const [action, setAction] = useState('');
 
   const registerLink = () => {
-    setAction('active');
+    setAction(' active');
+  };
+
+  const loginLink = () => {
+    setAction('');
   };
 
   return (
     // 
-    <div className={`wrapper ${action}`}>
+    <div className={`wrapper${action}`}>
       <div className="form-box login">
         <form action=''>
           <h1>Login</h1>
@@ -64,7 +68,7 @@ const LoginRegister = () => {
           <button type='submit'>Register</button>
 
           <div className="register-link">
-            <p>Already have an account? <a href='#' onClick={registerLink}>Login</a></p>
+            <p>Already have an account? <a href='#' onClick={loginLink}>Login</a></p>
           </div>
         </form>
       </div>

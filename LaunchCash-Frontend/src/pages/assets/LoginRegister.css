@@ -2,11 +2,20 @@
     position: relative;
     width: 420px;
     height: 450px;
-    background: rgb(72, 194, 122);
+    background-color: rgb(51, 158, 97);
+    border: 2px solid rgba(255, 255, 255, .1);
     border-radius: 10px;
     color: #fff;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+}
+
+
+
+.wrapper.active {
+    height: 520px;
 }
 
 .wrapper .form-box {
