@@ -1,11 +1,11 @@
-
-import Login from "./pages/login";
+import React from "react";
+import LoginRegister from "./pages/LoginRegister";
 
 function App() {
   return (
     <>
       <div>
-        <Login />
+        <LoginRegister />
       </div>
     </>
   )
