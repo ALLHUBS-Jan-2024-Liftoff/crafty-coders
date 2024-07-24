@@ -1,10 +1,11 @@
 package com.hodges.LaunchCash.models;
 
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+
+import java.time.LocalDate;
 
 
 @Entity
@@ -21,6 +22,8 @@ public class Transaction {
 
     private String receiver;
     private float amount;
+
+    private LocalDate transactiondate
 // add a date or something to track the transactions for each one
 
 
