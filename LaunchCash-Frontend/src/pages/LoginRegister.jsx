@@ -1,17 +1,52 @@
 import React, { useState } from 'react'
 import { FaUserAstronaut, FaLock, FaEnvelope } from 'react-icons/fa';
+import axios from 'axios';
 import './assets/LoginRegister.css';
 
 //Code for Login page
 const LoginRegister = () => {
 
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
   const [action, setAction] = useState('');
 
-  const registerLink = () => {
+  
+  const handleLogin = async (e) => { 
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8080/login', {
+        username,
+        password
+      });
+      setMessage(response.data);
+    } catch (error) {
+      setMessage('Error logging in')
+    }
+  }
+
+  const handleRegister = async (e) => { 
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8080/register', {
+        username,
+        email,
+        password
+      });
+      setMessage(response.data);
+    } catch (error) {
+      setMessage('Error logging in')
+    }
+  }
+
+  //Sets wrapper to active when Register button is clicked
+  const registerLink = () => { 
     setAction(' active');
   };
 
-  const loginLink = () => {
+  //Sets wrapper to inactive when Login button is clicked
+  const loginLink = () => { 
     setAction('');
   };
 
@@ -19,14 +54,16 @@ const LoginRegister = () => {
     // 
     <div className={`wrapper${action}`}>
       <div className="form-box login">
-        <form action=''>
+        <form action='' onSubmit={handleLogin}>
           <h1>Login</h1>
           <div className='input-box'>
-            <input type="text" placeholder='Username' required />
+            <input type="text" value={username} placeholder='Username'
+              onChange={(e) => setUsername(e.target.value)} required />
             <FaUserAstronaut className='icon'/>
           </div>
           <div className='input-box'>
-            <input type="password" placeholder='Password' required />
+            <input type="password" value={password} placeholder='Password'
+              onChange={(e) => setPassword(e.target.value)} required />
             <FaLock className='icon'/>
           </div>
 
@@ -42,21 +79,25 @@ const LoginRegister = () => {
             <p>Don't have an account? <a href='#' onClick={registerLink}>Register</a></p>
           </div>
         </form>
+        {message && <p>{message}</p>}
       </div>
 
       <div className="form-box register">
-        <form action=''>
+        <form action='' onSubmit={handleRegister}>
           <h1>Create Account</h1>
           <div className='input-box'>
-            <input type="text" placeholder='Username' required />
+            <input type="text" value={username} placeholder='Username'
+              onChange={(e) => setUsername(e.target.value)} required />
             <FaUserAstronaut className='icon'/>
           </div>
           <div className='input-box'>
-            <input type="email" placeholder='Email' required />
+            <input type="email" value={email} placeholder='Email'
+              onChange={(e) => setEmail(e.target.value)} required />
             <FaEnvelope className='icon'/>
           </div>
           <div className='input-box'>
-            <input type="password" placeholder='Password' required />
+            <input type="password" value={password} placeholder='Password'
+              onChange={(e) => setPassword(e.target.value)} required />
             <FaLock className='icon'/>
           </div>
 
@@ -71,6 +112,7 @@ const LoginRegister = () => {
             <p>Already have an account? <a href='#' onClick={loginLink}>Login</a></p>
           </div>
         </form>
+        {message && <p>{message}</p>}
       </div>
     </div>
     
