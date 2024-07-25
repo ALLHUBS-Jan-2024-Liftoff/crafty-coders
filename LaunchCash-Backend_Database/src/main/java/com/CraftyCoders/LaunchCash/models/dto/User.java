@@ -1,12 +1,12 @@
-package com.CraftyCoders.LaunchCash.models;
+package com.CraftyCoders.LaunchCash.models.dto;
 
+import com.CraftyCoders.LaunchCash.models.Profile;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
-
     @Id
     @GeneratedValue
     private Long id;
@@ -17,6 +17,11 @@ public class User {
     @NotEmpty
     private String hashedPassword;
 
+    @NotEmpty
+    private String email;
+
+    private double balance;
+
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -24,9 +29,11 @@ public class User {
 
     public User() {
     }
-    public User(String username, String hashedPassword){
-        this.username=username;
-        this.hashedPassword=encoder.encode(hashedPassword);
+
+    public User(String username, String hashedPassword, String name, String email) {
+        this.username = username;
+        this.hashedPassword = hashedPassword;
+        this.email = email;
     }
 
     public Long getId() {
@@ -45,17 +52,24 @@ public class User {
         this.username = username;
     }
 
-
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
-
     public String getHashedPassword() {
         return hashedPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public void setHashedPassword(String hashedPassword) {
@@ -64,4 +78,5 @@ public class User {
     public boolean isMatchingPassword(String password) {
         return encoder.matches(password, hashedPassword);
     }
+
 }
