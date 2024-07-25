@@ -1,19 +1,44 @@
 package com.CraftyCoders.LaunchCash.models.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.CraftyCoders.LaunchCash.models.Profile;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class user {
     @Id
     @GeneratedValue
     private Long id;
-    private String username;
-    private String name;
-    private String email;
-    private String phoneNumber;
 
+    @NotEmpty
+    private String username;
+
+    @NotEmpty
+    private String hashedPassword;
+
+    @NotEmpty
+    private String name;
+
+    @NotEmpty
+    private String email;
+
+    private double balance;
+
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Profile profile;
+
+    public user() {
+    }
+
+    public user(String username, String hashedPassword, String name, String email) {
+        this.username = username;
+        this.hashedPassword = hashedPassword;
+        this.name = name;
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
@@ -29,6 +54,10 @@ public class user {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
     }
 
     public String getName() {
@@ -47,11 +76,19 @@ public class user {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public double getBalance() {
+        return balance;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = encoder.encode(hashedPassword);
+    }
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, hashedPassword);
+    }
+
 }
