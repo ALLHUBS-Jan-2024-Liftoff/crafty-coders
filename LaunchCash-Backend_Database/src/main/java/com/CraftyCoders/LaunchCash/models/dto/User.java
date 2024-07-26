@@ -22,8 +22,6 @@ public class User {
 
     private double balance;
 
-    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Profile profile;
 

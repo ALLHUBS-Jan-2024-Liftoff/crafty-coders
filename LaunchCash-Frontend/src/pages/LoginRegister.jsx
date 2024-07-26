@@ -67,7 +67,7 @@ const LoginRegister = () => {
             <FaLock className='icon'/>
           </div>
 
-          {/* Links do not work yet. */}
+          {/* Remember me and forgot password do not work yet. */}
           <div className='remember-forgot'>
             <label><input type='checkbox' />Remember me</label>
             <a href='#'>Forgot password?</a>
@@ -101,7 +101,7 @@ const LoginRegister = () => {
             <FaLock className='icon'/>
           </div>
 
-          {/* Links do not work yet. */}
+          {/* Terms & conditions are empty for now. */}
           <div className='remember-forgot'>
             <label><input type='checkbox' />I agree to the terms & conditions</label>
           </div>
