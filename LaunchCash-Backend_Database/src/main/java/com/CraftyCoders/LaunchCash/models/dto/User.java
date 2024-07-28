@@ -1,14 +1,13 @@
 package com.CraftyCoders.LaunchCash.models.dto;
 
-import com.CraftyCoders.LaunchCash.models.Profile;
+//import com.CraftyCoders.LaunchCash.models.Profile;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
@@ -20,15 +19,17 @@ public class User {
     @NotEmpty
     private String email;
 
+    private String role;
+
     private double balance;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Profile profile;
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Profile profile;
 
     public User() {
     }
 
-    public User(String username, String hashedPassword, String name, String email) {
+    public User(String username, String hashedPassword, String email) {
         this.username = username;
         this.hashedPassword = hashedPassword;
         this.email = email;
@@ -71,10 +72,19 @@ public class User {
     }
 
     public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = encoder.encode(hashedPassword);
-    }
-    public boolean isMatchingPassword(String password) {
-        return encoder.matches(password, hashedPassword);
+        this.hashedPassword = hashedPassword;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    //public boolean isMatchingPassword(String password) {
+      //  return encoder.matches(password, hashedPassword);
 }
+
+
