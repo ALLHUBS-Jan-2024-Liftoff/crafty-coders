@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+//import { useNavigate } from 'react-router-dom';
 import { FaUserAstronaut, FaLock, FaEnvelope } from 'react-icons/fa';
 import axios from 'axios';
 import './assets/LoginRegister.css';
@@ -11,34 +12,44 @@ const LoginRegister = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [action, setAction] = useState('');
+  //const [error, setError] = useState(null);
+  //const history = useNavigate();
 
   
-  const handleLogin = async (e) => { 
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/login', {
-        username,
-        password
+      const response = await axios.post('http://localhost:8080/api/user/login', null, {
+        params: {
+          username,
+          password
+        }
       });
-      setMessage(response.data);
+      setMessage(response.data.message);
+      //history('/profile');
     } catch (error) {
-      setMessage('Error logging in')
+      console.error('Error logging in:', error);
+      setMessage('Error logging in');
     }
-  }
+  };
 
-  const handleRegister = async (e) => { 
+  const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/register', {
-        username,
-        email,
-        password
+      const response = await axios.post('http://localhost:8080/api/user/register', null, {
+        params: {
+          username,
+          email,
+          password
+        }
       });
-      setMessage(response.data);
+      setMessage(response.data.message);
+      //history('/profile');
     } catch (error) {
-      setMessage('Error logging in')
+      console.error('Error logging in:', error);
+      setMessage('Error logging in');
     }
-  }
+  };
 
   //Sets wrapper to active when Register button is clicked
   const registerLink = () => { 
@@ -54,7 +65,7 @@ const LoginRegister = () => {
     // 
     <div className={`wrapper${action}`}>
       <div className="form-box login">
-        <form action='' onSubmit={handleLogin}>
+        <form action='' method='post' onSubmit={handleLogin}>
           <h1>Login</h1>
           <div className='input-box'>
             <input type="text" value={username} placeholder='Username'
@@ -73,7 +84,7 @@ const LoginRegister = () => {
             <a href='#'>Forgot password?</a>
           </div>
 
-          <button type='submit'>Login</button>
+          <button type='submit' onClick={handleLogin}>Login</button>
 
           <div className="register-link">
             <p>Don't have an account? <a href='#' onClick={registerLink}>Register</a></p>
@@ -83,7 +94,7 @@ const LoginRegister = () => {
       </div>
 
       <div className="form-box register">
-        <form action='' onSubmit={handleRegister}>
+        <form action='' method='post' onSubmit={handleRegister}>
           <h1>Create Account</h1>
           <div className='input-box'>
             <input type="text" value={username} placeholder='Username'
