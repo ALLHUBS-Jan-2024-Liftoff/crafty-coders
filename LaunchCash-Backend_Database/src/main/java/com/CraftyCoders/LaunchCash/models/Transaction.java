@@ -23,7 +23,7 @@ public class Transaction {
     private String receiver;
     private float amount;
 
-    private LocalDate transactiondate
+    private LocalDate transactiondate;
 // add a date or something to track the transactions for each one
 
 
