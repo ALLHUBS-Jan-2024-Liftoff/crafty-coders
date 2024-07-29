@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api.contactus")
-public class ContactMessageController {
+public class ContactUsController {
     @Autowired
     private ContactMessage contactMessage;
 
