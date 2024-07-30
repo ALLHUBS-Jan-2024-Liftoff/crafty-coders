@@ -1,2 +1,0 @@
-# LaunchCash
-Launch Cash App
