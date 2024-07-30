@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class ContactUs {
+public class ContactMessage {
 
 
     @Id
