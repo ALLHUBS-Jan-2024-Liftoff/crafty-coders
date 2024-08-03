@@ -29,6 +29,13 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	implementation 'io.dropwizard:dropwizard-configuration:4.0.7'
+	//Plaid dependencies
+	implementation 'com.plaid:plaid-java:25.0.0'
+	//Strip dependencies
+	implementation 'com.stripe:stripe-java:26.5.1'
+	//JSON
 }
 
 tasks.named('test') {

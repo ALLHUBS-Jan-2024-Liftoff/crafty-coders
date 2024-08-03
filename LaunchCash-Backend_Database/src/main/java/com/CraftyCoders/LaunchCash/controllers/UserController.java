@@ -4,12 +4,12 @@ import com.CraftyCoders.LaunchCash.repositories.UserRepository;
 import com.CraftyCoders.LaunchCash.models.dto.User;
 //import com.CraftyCoders.LaunchCash.services.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -36,7 +36,7 @@ public class UserController {
         return userRepository.save(newUser);
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<?> loginUser(@RequestParam String username,
                                        @RequestParam String password) {
         User existingUser = userRepository.findByUsername(username);
@@ -53,6 +53,21 @@ public class UserController {
 
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/find-user")
+    public User getUser(@RequestParam String username) {
+         return userRepository.findByUsername(username);
+    }
+
+//    @GetMapping("/search")
+//    public ResponseEntity<?> searchForUser(@RequestParam String username) {
+//        User foundUser = userRepository.findByUsername(username);
+//
+//        if (!(foundUser == null)) {
+//            return ResponseEntity.ok(foundUser.get());
+//        } else {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No user was found by that name");
+//    }
 }
 
 //    @GetMapping("edit/{id}")
