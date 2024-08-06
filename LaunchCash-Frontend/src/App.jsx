@@ -1,23 +1,25 @@
 import React from "react";
 import LoginRegister from "./pages/LoginRegister";
-import profile from "./pages/profile";
+import Profile from "./pages/Profile";
 import NavBar from './pages/NavBar'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//import Register from "./components/Register";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-    <NavBar />
+      <>
+        <NavBar />
         <Routes>
           <Route path="/" element={<LoginRegister />} />
-            <Route path="/profile" element={<profile />} />
-            <Route path="/transaction" component={Transaction} />
+          {/* <Route path="/register" Component={<Register />} /> */}
+          <Route path={`/profile/${username}`} element={<Profile />} />
+            {/*<Route path="/transaction" component={Transaction} />
             <Route path="/friends" component={Friends} />
-               <Route path="/profile" component={Profile} />
+               <Route path="/profile" component={Profile} /> */}
         </Routes>
 
-      </Router>
+      </>
       </div>
   )
 }
