@@ -3,14 +3,17 @@ package com.CraftyCoders.LaunchCash.models.dto;
 //import com.CraftyCoders.LaunchCash.models.Profile;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.stereotype.Indexed;
 
 @Entity
+@Indexed
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
+
     private String username;
 
     @NotEmpty
