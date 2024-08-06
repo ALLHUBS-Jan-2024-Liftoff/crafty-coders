@@ -1,15 +1,16 @@
 //Input code for user profile. Path LaunchCash/profile
 
-import React from 'react'
+import React from 'react';
+import response from './LoginRegister';
 
-const profile = () => {
-    
-
+const Profile = () => {
+  console.log(response.data);
+  var username = response.data.username;
   return (
       <div>
-          <h1>Hello!</h1>
+      <h1>Hello, {username}!</h1>
       </div>
   )
 }
 
-export default profile;
+export default Profile;

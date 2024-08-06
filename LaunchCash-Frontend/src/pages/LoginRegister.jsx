@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FaUserAstronaut, FaLock, FaEnvelope } from 'react-icons/fa';
 import axios from 'axios';
 import './assets/LoginRegister.css';
+
 
 //Code for Login page
 const LoginRegister = () => {
@@ -12,26 +13,21 @@ const LoginRegister = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [action, setAction] = useState('');
-  //const [error, setError] = useState(null);
-  //const history = useNavigate();
+  const navigate = useNavigate('');
 
-  
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/user/login', null, {
-        params: {
-          username,
-          password
-        }
-      });
-      setMessage(response.data.message);
-      //history('/profile');
-    } catch (error) {
+      const response = await axios.get(
+        'http://localhost:8080/api/user/login', { params: { username, password } });
+      navigate('/profile', {state: response.data});
+      console.log(response.data);
+    }catch (error) {
       console.error('Error logging in:', error);
       setMessage('Error logging in');
     }
-  };
+    
+  }
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -44,7 +40,7 @@ const LoginRegister = () => {
         }
       });
       setMessage(response.data.message);
-      //history('/profile');
+      navigate('/profile');
     } catch (error) {
       console.error('Error logging in:', error);
       setMessage('Error logging in');
@@ -65,7 +61,7 @@ const LoginRegister = () => {
     // 
     <div className={`wrapper${action}`}>
       <div className="form-box login">
-        <form action='' method='post' onSubmit={handleLogin}>
+        <form action='' onSubmit={handleLogin}>
           <h1>Login</h1>
           <div className='input-box'>
             <input type="text" value={username} placeholder='Username'
@@ -84,7 +80,9 @@ const LoginRegister = () => {
             <a href='#'>Forgot password?</a>
           </div>
 
-          <button type='submit' onClick={handleLogin}>Login</button>
+          {/* <Link to="/profile/:username"> */}
+          <button type='submit'>Login</button>
+          {/* </Link> */}
 
           <div className="register-link">
             <p>Don't have an account? <a href='#' onClick={registerLink}>Register</a></p>

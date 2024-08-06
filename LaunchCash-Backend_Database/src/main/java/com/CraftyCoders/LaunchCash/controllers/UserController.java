@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
+@CrossOrigin("http://localhost:5173")
 @RequestMapping("/api/user")
-@CrossOrigin
 public class UserController {
     @Autowired
     private UserRepository userRepository;
