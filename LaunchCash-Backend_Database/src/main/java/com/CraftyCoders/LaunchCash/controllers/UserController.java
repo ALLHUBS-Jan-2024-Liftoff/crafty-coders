@@ -2,7 +2,6 @@ package com.CraftyCoders.LaunchCash.controllers;
 
 import com.CraftyCoders.LaunchCash.repositories.UserRepository;
 import com.CraftyCoders.LaunchCash.models.dto.User;
-//import com.CraftyCoders.LaunchCash.services.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +19,6 @@ public class UserController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-//    @Autowired
-//    private JwtService jwtService;
 
     @PostMapping("/register")
     public User saveUser(@RequestParam String username,
@@ -45,10 +41,7 @@ public class UserController {
             throw new IllegalArgumentException("Username or password incorrect.");
         }
 
-        //String token = jwtService.generateToken(existingUser);
-
         Map<String, Object> response = new HashMap<>();
-        //response.put("token", token);
         response.put("user", existingUser);
 
         return ResponseEntity.ok(response);

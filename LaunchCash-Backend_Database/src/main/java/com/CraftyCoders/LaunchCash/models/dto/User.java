@@ -13,7 +13,6 @@ public class User {
     private Long id;
 
     @NotEmpty
-
     private String username;
 
     @NotEmpty
@@ -22,7 +21,7 @@ public class User {
     @NotEmpty
     private String email;
 
-    private String role;
+//    private String role;
 
     private double balance;
 
@@ -78,13 +77,13 @@ public class User {
         this.hashedPassword = hashedPassword;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
+//    public String getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 
     //public boolean isMatchingPassword(String password) {
       //  return encoder.matches(password, hashedPassword);

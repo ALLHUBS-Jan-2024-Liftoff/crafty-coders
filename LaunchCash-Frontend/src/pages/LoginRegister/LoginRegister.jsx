@@ -4,7 +4,6 @@ import { FaUserAstronaut, FaLock, FaEnvelope } from 'react-icons/fa';
 import axios from 'axios';
 import './assets/LoginRegister.css';
 
-
 //Code for Login page
 const LoginRegister = () => {
 
@@ -20,12 +19,13 @@ const LoginRegister = () => {
     try {
       const response = await axios.get(
         'http://localhost:8080/api/user/login', { params: { username, password } });
-      navigate('/profile', {state: response.data});
       console.log(response.data);
-    }catch (error) {
-      console.error('Error logging in:', error);
-      setMessage('Error logging in');
-    }
+      console.log(response.data.username);
+      navigate(`/profile/${username}`);
+      }catch (error) {
+        console.error('Error logging in:', error);
+        setMessage('Error logging in');
+      }
     
   }
 
@@ -40,7 +40,7 @@ const LoginRegister = () => {
         }
       });
       setMessage(response.data.message);
-      navigate('/profile');
+      navigate(`/profile/${username}`);
     } catch (error) {
       console.error('Error logging in:', error);
       setMessage('Error logging in');
@@ -127,5 +127,6 @@ const LoginRegister = () => {
     
   )
 }
+
 
 export default LoginRegister;
