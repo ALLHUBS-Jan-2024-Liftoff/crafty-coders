@@ -1,14 +1,16 @@
-//Input code for user profile. Path LaunchCash/profile
 
-import React from 'react';
-import response from './LoginRegister';
+
+import React, { useContext } from 'react';
+import {user} from './LoginRegister/components/UserContext';
+
 
 const Profile = () => {
-  console.log(response.data);
-  var username = response.data.username;
+  const username = useContext(user);
+  console.log(username);
+  
   return (
       <div>
-      <h1>Hello, {username}!</h1>
+        <h1>Hello, {username}!</h1>
       </div>
   )
 }
