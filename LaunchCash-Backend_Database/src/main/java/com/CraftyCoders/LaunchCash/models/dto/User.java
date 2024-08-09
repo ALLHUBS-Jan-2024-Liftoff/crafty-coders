@@ -3,8 +3,10 @@ package com.CraftyCoders.LaunchCash.models.dto;
 //import com.CraftyCoders.LaunchCash.models.Profile;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.stereotype.Indexed;
 
 @Entity
+@Indexed
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +21,7 @@ public class User {
     @NotEmpty
     private String email;
 
-    private String role;
+//    private String role;
 
     private double balance;
 
@@ -75,13 +77,13 @@ public class User {
         this.hashedPassword = hashedPassword;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
+//    public String getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 
     //public boolean isMatchingPassword(String password) {
       //  return encoder.matches(password, hashedPassword);

@@ -2,27 +2,23 @@ package com.CraftyCoders.LaunchCash.controllers;
 
 import com.CraftyCoders.LaunchCash.repositories.UserRepository;
 import com.CraftyCoders.LaunchCash.models.dto.User;
-//import com.CraftyCoders.LaunchCash.services.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
+@CrossOrigin("http://localhost:5173")
 @RequestMapping("/api/user")
-@CrossOrigin
 public class UserController {
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-//    @Autowired
-//    private JwtService jwtService;
 
     @PostMapping("/register")
     public User saveUser(@RequestParam String username,
@@ -36,7 +32,7 @@ public class UserController {
         return userRepository.save(newUser);
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<?> loginUser(@RequestParam String username,
                                        @RequestParam String password) {
         User existingUser = userRepository.findByUsername(username);
@@ -45,14 +41,26 @@ public class UserController {
             throw new IllegalArgumentException("Username or password incorrect.");
         }
 
-        //String token = jwtService.generateToken(existingUser);
-
         Map<String, Object> response = new HashMap<>();
-        //response.put("token", token);
         response.put("user", existingUser);
 
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/find-user")
+    public User getUser(@RequestParam String username) {
+         return userRepository.findByUsername(username);
+    }
+
+//    @GetMapping("/search")
+//    public ResponseEntity<?> searchForUser(@RequestParam String username) {
+//        User foundUser = userRepository.findByUsername(username);
+//
+//        if (!(foundUser == null)) {
+//            return ResponseEntity.ok(foundUser.get());
+//        } else {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No user was found by that name");
+//    }
 }
 
 //    @GetMapping("edit/{id}")

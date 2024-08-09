@@ -114,6 +114,7 @@ form button {
     font-size: 16px;
     color: #333;
     font-weight: 700;
+    text-align: center;
 }
 
 form .register-link {
@@ -131,3 +132,4 @@ form .register-link {
 .register-link p a:hover {
     text-decoration: underline;
 }
+

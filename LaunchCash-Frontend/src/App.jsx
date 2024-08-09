@@ -1,32 +1,36 @@
 import React from "react";
-import LoginRegister from "./pages/LoginRegister";
-import profile from "./pages/profile";
+import LoginRegister from "./pages/LoginRegister/LoginRegister";
+import Profile from "./pages/Profile";
 import NavBar from './pages/NavBar'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { UserProvider } from "./pages/LoginRegister/components/UserContext";
 
 import { SearchBar } from "./components/SearchBar";
 function App() {
   return (
+
     <div className="App">
-        <div className="search-bar-container">
+      <div className="search-bar-container">
         <SearchBar />
         <div>SearchResults</div>
-    </div>
+      </div>
 
-
+     <UserProvider>
       <Router>
-    <NavBar />
+        <NavBar />
         <Routes>
-          <Route path="/" element={<LoginRegister />} />
-            <Route path="/profile" element={<profile />} />
-{/*             <Route path="/transaction" component={Transaction} /> */}
-{/*             <Route path="/friends" component={Friends} /> */}
-{/*                <Route path="/profile" component={Profile} /> */}
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/login-register" element={<LoginRegister />} />
+          <Route path={"/profile/:username"} element={<Profile />} />
         </Routes>
+      </Router>  
+    </UserProvider>
+  </div>
 
-      </Router>
- </div>
   )
 }
 
 export default App;
+
+/*<Route path="/transaction" component={Transaction} />
+<Route path="/friends" component={Friends} />*/
