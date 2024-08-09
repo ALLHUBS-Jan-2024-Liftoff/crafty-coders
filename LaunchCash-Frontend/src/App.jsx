@@ -5,8 +5,16 @@ import NavBar from './pages/NavBar'
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { UserProvider } from "./pages/LoginRegister/components/UserContext";
 
+import { SearchBar } from "./components/SearchBar";
 function App() {
   return (
+
+    <div className="App">
+      <div className="search-bar-container">
+        <SearchBar />
+        <div>SearchResults</div>
+      </div>
+
      <UserProvider>
       <Router>
         <NavBar />
@@ -17,6 +25,8 @@ function App() {
         </Routes>
       </Router>  
     </UserProvider>
+  </div>
+
   )
 }
 
