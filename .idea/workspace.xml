@@ -11,8 +11,6 @@
       <change afterPath="$PROJECT_DIR$/crafty-coders/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/crafty-coders/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders" beforeDir="false" afterPath="$PROJECT_DIR$/crafty-coders" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/build.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/build/classes/java/test/com/hodges/fitnessTracker1/FitnessTracker1ApplicationTests.class" beforeDir="false" />
@@ -53,36 +51,6 @@
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/hodges/LaunchCash/controllers/ContactMessageController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/test/java/com/CraftyCoders/LaunchCash/LaunchCashApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/.eslintrc.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/public/vite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/assets/react.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/AddBudget.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/AddExpense.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/Budgetcard.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/TotalBudget.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/UncategorizedBudgetCard.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/ViewExpenses.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/SearchBar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/SearchBar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/Home.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/LoginRegister/LoginRegister.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/LoginRegister/assets/LoginRegister.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/LoginRegister/components/UserContext.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/NavBar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/profile.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/settings.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/vite.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/package-lock.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +174,15 @@
       <option name="presentableId" value="Default" />
       <updated>1722566694600</updated>
     </task>
+    <task id="LOCAL-00001" summary="Budget">
+      <option name="closed" value="true" />
+      <created>1723253909863</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1723253909863</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
