@@ -4,8 +4,80 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c060b08d-9794-467b-9605-e3f2b77e4112" name="Changes" comment="added navbar">
-      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="f360597b-4bce-4528-a2e4-e6a70e36b8b2" name="Changes" comment="Budget">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders" beforeDir="false" afterPath="$PROJECT_DIR$/crafty-coders" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/build/classes/java/test/com/hodges/fitnessTracker1/FitnessTracker1ApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/build/libs/fitnessTracker1-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/LaunchCashApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/config/PlaidConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/config/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/controllers/AuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/controllers/ContactMessageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/controllers/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/controllers/ProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/controllers/TagController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/controllers/TransactionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/controllers/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/Activity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/ContactMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/PlaidClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/Profile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/Tag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/Transaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/dto/LoginFormDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/dto/RegisterFormDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/models/dto/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/repositories/ContactMessageRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/repositories/ProfileRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/repositories/TagRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/repositories/TransactionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/security/AuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/security/WebApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/services/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/test/java/com/CraftyCoders/LaunchCash/LaunchCashApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/.eslintrc.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/App.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/SearchBar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/SearchBar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Transaction.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/LoginRegister/LoginRegister.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/LoginRegister/assets/LoginRegister.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/LoginRegister/components/UserContext.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/NavBar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/profile.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/settings.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,13 +85,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database">
+    <projectState path="$PROJECT_DIR$/LaunchCash-Backend_Database">
       <ProjectState />
     </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/LaunchCash-Backend_Database">
+          <activation />
+        </task>
         <task path="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database">
           <activation />
         </task>
@@ -48,45 +123,47 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/crafty-coders" value="main" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/crafty-coders" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2jwYXicGJ7q4TxBlEk2aE0hEcNc" />
+  <component name="ProjectId" id="2k5Hop8TWNLTAKTalnySqq9Q5RF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.LaunchCash-Backend_Database [bootTestRun].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;NavBar&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nwade/Desktop/Launchcode/crafty-coders&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.LaunchCash-Backend_Database [bootRun].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "30-create-a-help-center-contact-us-controller-repo-and-model-java",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nwade/Desktop/Launchcode/crafty-coders/crafty-coders"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="LaunchCash-Backend_Database [bootTestRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LaunchCash-Backend_Database [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/LaunchCash-Backend_Database" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -94,7 +171,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="bootTestRun" />
+            <option value="bootRun" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -107,43 +184,27 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.LaunchCash-Backend_Database [bootTestRun]" />
+        <item itemvalue="Gradle.LaunchCash-Backend_Database [bootRun]" />
+        <item itemvalue="Gradle.LaunchCash-Backend_Database [bootRun]" />
+        <item itemvalue="Gradle.LaunchCash-Backend_Database [bootRun]" />
+        <item itemvalue="Gradle.LaunchCash-Backend_Database [bootRun]" />
+        <item itemvalue="Gradle.LaunchCash-Backend_Database [bootRun]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c060b08d-9794-467b-9605-e3f2b77e4112" name="Changes" comment="" />
-      <created>1722299650127</created>
+      <changelist id="f360597b-4bce-4528-a2e4-e6a70e36b8b2" name="Changes" comment="" />
+      <created>1722566694600</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1722299650127</updated>
+      <updated>1722566694600</updated>
     </task>
-    <task id="LOCAL-00001" summary="added navbar">
-      <option name="closed" value="true" />
-      <created>1722302112581</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1722302112581</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="added navbar" />
+    <MESSAGE value="Budget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Budget" />
   </component>
 </project>

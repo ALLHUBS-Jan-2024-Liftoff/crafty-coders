@@ -1,0 +1,28 @@
+.Transaction {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .Transaction h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .Transaction li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Transaction span {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #333;
+  }
+  .Transaction span:nth-of-type(4) {
+    font-weight: bold;
+    color: #007bff;
+  }

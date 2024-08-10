@@ -1,0 +1,11 @@
+{
+  "name": "crafty-coders",
+  "version": "1.0.0",
+  "description": "Liftoff group 2 for Lucas",
+  "main": "index.js",
+  "scripts": {
+    "dev": "react-scripts start"
+  },
+  "author": "",
+  "license": "ISC"
+}
