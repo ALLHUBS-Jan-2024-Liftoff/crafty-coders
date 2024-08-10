@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f360597b-4bce-4528-a2e4-e6a70e36b8b2" name="Changes" comment="Budget">
+      <change afterPath="$PROJECT_DIR$/crafty-coders/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crafty-coders/.idea/crafty-coders.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crafty-coders/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crafty-coders/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crafty-coders/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/LaunchCash-Backend_Database/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders" beforeDir="false" afterPath="$PROJECT_DIR$/crafty-coders" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/README.md" beforeDir="false" />
@@ -50,6 +50,7 @@
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/security/WebApplicationConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/services/JwtService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/CraftyCoders/LaunchCash/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/java/com/hodges/LaunchCash/controllers/ContactMessageController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Backend_Database/src/test/java/com/CraftyCoders/LaunchCash/LaunchCashApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/.eslintrc.cjs" beforeDir="false" />
@@ -62,9 +63,14 @@
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/App.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/AddBudget.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/AddExpense.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/Budgetcard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/TotalBudget.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/UncategorizedBudgetCard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Budget/BudgetComponent/ViewExpenses.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/SearchBar.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/SearchBar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/components/Transaction.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/index.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/main.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/src/pages/Home.jsx" beforeDir="false" />
@@ -77,7 +83,6 @@
       <change beforePath="$PROJECT_DIR$/crafty-coders/LaunchCash-Frontend/vite.config.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crafty-coders/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
