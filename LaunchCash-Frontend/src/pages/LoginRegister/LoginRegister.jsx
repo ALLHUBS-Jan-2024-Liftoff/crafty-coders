@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaUserAstronaut, FaLock, FaEnvelope } from "react-icons/fa";
 import axios from "axios";
 import "./assets/LoginRegister.css";
@@ -11,7 +11,6 @@ const LoginRegister = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [action, setAction] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate("");
 
   const handleLogin = async (e) => {
@@ -21,7 +20,6 @@ const LoginRegister = () => {
         params: { username, password },
       });
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      setIsLoggedIn(true);
       navigate(`/profile/${username}`);
     } catch (error) {
       console.error("Error logging in:", error);
@@ -44,7 +42,7 @@ const LoginRegister = () => {
         }
       );
       setMessage(response.data.message);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("user", JSON.stringify(response.data));
       navigate(`/profile/${username}`);
     } catch (error) {
       console.error("Error logging in:", error);
