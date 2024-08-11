@@ -5,11 +5,11 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("");
-  console.log(children);
 
   useEffect(() => {
     const checkUser = async () => {
       let authUser = AuthUser();
+      console.log("A", authUser);
 
       if (authUser === null) {
         localStorage.setItem("user", "");
@@ -17,7 +17,6 @@ export const UserProvider = ({ children }) => {
       }
 
       setCurrentUser(authUser);
-      console.log(authUser);
     };
 
     checkUser();
@@ -32,4 +31,4 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export default UserContext;
+export { UserContext };

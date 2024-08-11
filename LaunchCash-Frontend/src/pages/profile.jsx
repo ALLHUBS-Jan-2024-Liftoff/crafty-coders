@@ -1,20 +1,16 @@
 import React from "react";
 import { AuthUser } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
-//import logout from "../components/Logout";
 
 const Profile = () => {
-  let user = AuthUser();
+  const user = AuthUser();
   const navigate = useNavigate("");
-
   console.log(user);
-  console.log(user.username);
+
   const username = user.username;
-  console.log(username);
 
   const logout = () => {
     localStorage.clear();
-    console.log(user);
     navigate("/");
   };
 
