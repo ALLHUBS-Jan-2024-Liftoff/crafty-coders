@@ -10,6 +10,7 @@ const Profile = () => {
   console.log(user);
   console.log(user.username);
   const username = user.username;
+  const balance = user.balance;
   console.log(username);
 
   const logout = () => {
@@ -20,11 +21,14 @@ const Profile = () => {
 
   return (
     <>
-      <div>
-        <h1>Hello, ${username}!</h1>
-      </div>
-      <div>
-        <button onClick={logout}>Logout</button>
+      <div className="hello-user">
+        <h1>Hello, {username}!</h1>
+        <div>
+          <h2>Balance: ${balance}</h2>
+          <div>
+            <button onClick={logout}>Logout</button>
+          </div>
+        </div>
       </div>
     </>
   );
