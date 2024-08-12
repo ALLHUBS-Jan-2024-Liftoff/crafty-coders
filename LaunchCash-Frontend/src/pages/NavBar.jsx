@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -19,14 +19,18 @@ const NavBar = ({ user, handleLogout }) => {
 
       {!user ? (
         <>
-          <Link className="nav-link" to="/login-register">
+          <Link className="nav-link" to="/login">
             Login
           </Link>
         </>
       ) : (
         <>
           <span className="nav-link">Welcome, {user.firstName}</span>
-          <button className="nav-link btn btn-link" onClick={handleLogout} style={{ border: 'none', padding: 0 }}>
+          <button
+            className="nav-link btn btn-link"
+            onClick={handleLogout}
+            style={{ border: "none", padding: 0 }}
+          >
             Logout
           </button>
         </>
