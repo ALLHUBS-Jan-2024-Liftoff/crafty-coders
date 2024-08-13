@@ -1,20 +1,41 @@
-import React from 'react';
-import BudgetComponent from './path/to/BudgetComponent';
 
+import React, { useState } from 'react';
 
-function App() {
-  const [showModal, setShowModal] = React.useState(false);
+const BudgetForm = ({ addTransaction }) => {
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState('');
+  const [type, setType] = useState('expense'); // 'income' or 'expense'
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTransaction({ name, amount: parseFloat(amount), type });
+    setName('');
+    setAmount('');
+  };
 
   return (
-    <div>
-      <BudgetComponent
-        budgetType="Budget"
-        amount={500}
-        setShowModal={setShowModal}
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Name"
+        required
       />
-      {showModal && <div>Modal Content Here</div>}
-    </div>
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        placeholder="Amount"
+        required
+      />
+      <select value={type} onChange={(e) => setType(e.target.value)} required>
+        <option value="expense">Expense</option>
+        <option value="income">Income</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
   );
-}
+};
 
-export default App;
+export default BudgetForm;
