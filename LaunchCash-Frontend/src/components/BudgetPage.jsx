@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
-import BudgetForm from './components/BudgetForm';
-import BudgetList from './components/BudgetList';
+import BudgetForm from './BudgetComponent/BudgetForm';
+import BudgetList from './BudgetComponent/BudgetList';
+
+
 import './BudgetPage.css';
 
 const BudgetPage = () => {

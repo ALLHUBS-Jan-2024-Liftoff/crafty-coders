@@ -13,6 +13,9 @@ const NavBar = ({ user, handleLogout }) => {
       <Link className="nav-link" to="/friends">
         Friends
       </Link>
+      <Link className="nav-link" to="/Budget">
+        Budget
+      </Link>
       <Link className="nav-link" to="/profile/:username">
         Profile
       </Link>
