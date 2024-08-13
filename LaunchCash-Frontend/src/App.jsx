@@ -1,12 +1,13 @@
 import React from "react";
 import LoginRegister from "./pages/LoginRegister/LoginRegister";
-import Profile from "./pages/Profile";
+// import Profile from "./pages/Profile";
 import NavBar from "./pages/NavBar";
 import Home from "./pages/Home";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { UserProvider } from "./pages/LoginRegister/components/UserContext";
 
 import { SearchBar } from "./components/SearchBar";
+import BudgetPage from "./components/BudgetPage";
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login-register" element={<LoginRegister />} />
-            <Route path={"/profile/:username"} element={<Profile />} />
+            {/* <Route path={"/profile/:username"} element={<Profile />} /> */}
+            <Route path="/budget" element={<BudgetPage />} /> 
           </Routes>
         </Router>
       </UserProvider>
