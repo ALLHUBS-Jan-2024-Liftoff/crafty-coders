@@ -1,0 +1,63 @@
+.budget-list {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .summary {
+    margin-bottom: 20px;
+  }
+
+  .summary h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .summary-item.income {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  .summary-item.expense {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  .summary-item.balance {
+    font-weight: bold;
+    background-color: #e2e3e5;
+  }
+
+  .transaction-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .transaction-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .transaction-list li.income {
+    color: #28a745;
+    background-color: #eaffea;
+  }
+
+  .transaction-list li.expense {
+    color: #dc3545;
+    background-color: #ffe5e5;
+  }
