@@ -23,7 +23,7 @@ public class User {
 
 //    private String role;
 
-    private double balance;
+    private double balance = 200;
 
 //    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private Profile profile;
