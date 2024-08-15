@@ -1,8 +1,10 @@
 import React from "react";
+import Profile from "./pages/Profile";
 import LoginRegister from "./pages/LoginRegister/LoginRegister";
-// import Profile from "./pages/Profile";
 import NavBar from "./pages/NavBar";
 import Home from "./pages/Home";
+import Login from "./pages/LoginRegister/Login";
+import Register from "./pages/LoginRegister/Register";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { UserProvider } from "./pages/LoginRegister/components/UserContext";
 
@@ -21,8 +23,10 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path={"/profile/:username"} element={<Profile />} />
             <Route path="/login-register" element={<LoginRegister />} />
-            {/* <Route path={"/profile/:username"} element={<Profile />} /> */}
             <Route path="/budget" element={<BudgetPage />} /> 
           </Routes>
         </Router>
@@ -32,6 +36,3 @@ function App() {
 }
 
 export default App;
-
-/*<Route path="/transaction" component={Transaction} />
-<Route path="/friends" component={Friends} />*/
