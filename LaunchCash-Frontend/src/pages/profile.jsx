@@ -23,12 +23,12 @@ const Profile = () => {
     <>
       <div className="hello-user">
         <h1>Hello, {username}!</h1>
-        <div>
-          <h2>Balance: ${balance}</h2>
-          <div>
-            <button onClick={logout}>Logout</button>
-          </div>
-        </div>
+      </div>
+      <div>
+        <h2>Balance: ${balance}</h2>
+      </div>
+      <div>
+        <button onClick={logout}>Logout</button>
       </div>
     </>
   );
