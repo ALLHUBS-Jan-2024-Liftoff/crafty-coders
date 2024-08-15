@@ -8,6 +8,7 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { UserProvider } from "./pages/LoginRegister/components/UserContext";
 import { SearchBar } from "./components/SearchBar";
 import BudgetPage from "./components/BudgetPage";
+import JsonUserApi from "./api/JsonUsersApi";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/json" element={<JsonUserApi />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path={"/profile/:username"} element={<Profile />} />
