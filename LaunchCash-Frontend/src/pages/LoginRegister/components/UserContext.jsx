@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const checkUser = async () => {
       let authUser = AuthUser();
+      console.log("A", authUser);
 
       if (authUser === null) {
         localStorage.setItem("user", "");
