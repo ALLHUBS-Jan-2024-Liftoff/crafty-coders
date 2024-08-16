@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.CraftyCoders.LaunchCash.models.ContactMessage;
 import com.CraftyCoders.LaunchCash.repositories.ContactMessageRepository;
 @RestController
-@RequestMapping("/contactus")
+@RequestMapping("/contactform")
 public class ContactMessageController {
     @Autowired
     private ContactMessageRepository contactMessageRepository;
