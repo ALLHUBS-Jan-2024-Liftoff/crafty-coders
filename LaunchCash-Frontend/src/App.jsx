@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "./pages/Profile";
+import Profile from "./pages/profile";
 import LoginRegister from "./pages/LoginRegister/LoginRegister";
 import NavBar from "./pages/NavBar";
 import Home from "./pages/Home";
