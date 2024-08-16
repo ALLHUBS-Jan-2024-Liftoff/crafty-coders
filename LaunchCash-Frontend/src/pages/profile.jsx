@@ -8,11 +8,9 @@ const Profile = () => {
   console.log(user);
 
   const username = user.username;
-// <<<<<<< findUser
-// =======
+
   const balance = user.balance;
   console.log(username);
-// >>>>>>> main
 
   const logout = () => {
     localStorage.clear();

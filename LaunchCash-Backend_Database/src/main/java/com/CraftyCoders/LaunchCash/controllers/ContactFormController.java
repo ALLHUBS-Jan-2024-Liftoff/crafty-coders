@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.CraftyCoders.LaunchCash.models.ContactMessage;
-import com.CraftyCoders.LaunchCash.repositories.ContactMessageRepository;
+import com.CraftyCoders.LaunchCash.models.ContactForm;
+import com.CraftyCoders.LaunchCash.repositories.ContactFormRepository;
 @RestController
 @RequestMapping("/contactform")
-public class ContactMessageController {
+public class ContactFormController {
     @Autowired
-    private ContactMessageRepository contactMessageRepository;
+    private ContactFormRepository contactFormRepository;
 
     @PostMapping
-    public ResponseEntity<ContactMessage> createMessage(@RequestBody ContactMessage contactMessage) {
-        ContactMessage savedMessage = contactMessageRepository.save(contactMessage);  // Save the message
+    public ResponseEntity<ContactForm> createMessage(@RequestBody ContactForm contactForm) {
+        ContactForm savedMessage = contactFormRepository.save(contactForm);
         return ResponseEntity.ok(savedMessage);
     }
 }

@@ -1,7 +1,7 @@
 package com.CraftyCoders.LaunchCash.repositories;
 
-import com.CraftyCoders.LaunchCash.models.ContactMessage;
+import com.CraftyCoders.LaunchCash.models.ContactForm;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ContactMessageRepository extends JpaRepository <ContactMessage, Long> {
+public interface ContactFormRepository extends JpaRepository <ContactForm, Long> {
 }
