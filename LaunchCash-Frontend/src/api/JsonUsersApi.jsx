@@ -3,6 +3,7 @@ import axios from "axios";
 
 const JsonUserApi = () => {
   const [users, setUsers] = useState([]);
+  const balance = 200;
 
   const getApiUsers = async () => {
     const apiUsers = await axios.get(
@@ -21,14 +22,13 @@ const JsonUserApi = () => {
           password: fakeUser.username,
         })
     );
-    console.log(users);
   };
 
   useEffect(() => {
     getApiUsers().then(mapUsers());
-
     localStorage.setItem("users", JSON.stringify(mapUsers));
     setUsers(users);
+    console.log(users);
   }, []);
 
   return (
@@ -39,7 +39,7 @@ const JsonUserApi = () => {
             <strong>Username:</strong> {listUser.username} <br />
             <strong>Email:</strong> {listUser.email} <br />
             <strong>Password:</strong> {listUser.username} <br />
-            <strong>Balance:</strong> $200.00 <br /> <br />
+            <strong>Balance:</strong> ${balance} <br /> <br />
           </li>
         ))}
       </ul>
