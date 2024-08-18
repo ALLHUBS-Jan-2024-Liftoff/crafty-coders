@@ -1,10 +1,8 @@
 import React from "react";
-import { UserContext } from "./LoginRegister/components/UserContext";
 
 const Home = () => {
-  console.log(UserContext);
   return (
-    <div>
+    <div className="d-flex flex-column min-vh-100 justify-content-center align-items-center">
       <h1>Welcome to LaunchCash!</h1>
     </div>
   );
