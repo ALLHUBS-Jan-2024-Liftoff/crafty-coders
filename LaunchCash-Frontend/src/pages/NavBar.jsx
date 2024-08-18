@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 
 const NavBar = ({ user, handleLogout }) => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav
+      className="navbar navbar-light bg-light"
+      style={{
+        paddingLeft: "20px",
+        paddingRight: "20px",
+      }}
+    >
       <Link className="navbar-brand" to="/">
         Home
       </Link>

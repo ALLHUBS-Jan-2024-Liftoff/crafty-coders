@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
+import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 
 const JsonUserApi = () => {
   const [users, setUsers] = useState([]);
@@ -67,9 +68,14 @@ const JsonUserApi = () => {
                   <Button variant="primary" className="m-2">
                     Add Friend
                   </Button>
-                  <Button variant="success" className="m-2">
-                    $ Payment $
-                  </Button>
+                  <div>
+                    <Button variant="success" className="m-1 px-5">
+                      <GiPayMoney />
+                    </Button>
+                    <Button variant="success" className="m-1 px-5">
+                      <GiReceiveMoney />
+                    </Button>
+                  </div>
                 </div>
               </Card.Body>
             </Card>
