@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "./pages/Profile";
+import Profile from "./pages/profile";
 import NavBar from "./pages/NavBar";
 import Home from "./pages/Home";
 import Login from "./pages/LoginRegister/Login";
@@ -9,6 +9,7 @@ import { UserProvider } from "./pages/LoginRegister/components/UserContext";
 import { SearchBar } from "./components/SearchBar";
 import BudgetPage from "./components/BudgetPage";
 import JsonUserApi from "./api/JsonUsersApi";
+import ContactForm from './components/ContactForm';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path={"/profile/:username"} element={<Profile />} />
             <Route path="/budget" element={<BudgetPage />} />
+            <Route path="/ContactForm" element={<ContactForm />} />
           </Routes>
         </Router>
       </UserProvider>

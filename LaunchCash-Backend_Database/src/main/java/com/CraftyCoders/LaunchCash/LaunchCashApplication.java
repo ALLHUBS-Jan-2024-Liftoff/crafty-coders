@@ -24,6 +24,12 @@ public class LaunchCashApplication {
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 						.allowedHeaders("*")
 						.allowCredentials(true);
+
+				registry.addMapping("/contactform")
+						.allowedOrigins("http://localhost:5173")
+						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+						.allowedHeaders("*")
+						.allowCredentials(true);
 			}
 		};
 	}
