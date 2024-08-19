@@ -3,7 +3,7 @@ import axios from "axios";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 
-const JsonUserApi = () => {
+const JsonUserApi = ({ searchQuery }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -29,18 +29,28 @@ const JsonUserApi = () => {
         });
 
         setUsers(transformedUsers);
-      } catch (error) {
-        console.error("Error fetching users:", error);
+      } catch (err) {
+        console.error("Error fetching users:", err);
       }
     };
 
     fetchUsers();
   }, []);
 
+  const filteredUsers = users.filter(
+    (user) =>
+      user.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  if (!searchQuery) {
+    return null;
+  }
+
   return (
     <Container className="my-4">
       <Row className="justify-content-center">
-        {users.map((user) => (
+        {filteredUsers.map((user) => (
           <Col
             md={4}
             key={user.username}
@@ -68,12 +78,20 @@ const JsonUserApi = () => {
                   <Button variant="primary" className="m-2">
                     Add Friend
                   </Button>
-                  <div>
-                    <Button variant="success" className="m-1 px-5">
-                      <GiPayMoney />
+                  <div className="d-block">
+                    <Button
+                      variant="success"
+                      className="m-2"
+                      style={{ padding: "0.375rem 2.75rem" }}
+                    >
+                      <GiPayMoney size={20} />
                     </Button>
-                    <Button variant="success" className="m-1 px-5">
-                      <GiReceiveMoney />
+                    <Button
+                      variant="success"
+                      className="m-2"
+                      style={{ padding: "0.375rem 2.75rem" }}
+                    >
+                      <GiReceiveMoney size={20} />
                     </Button>
                   </div>
                 </div>

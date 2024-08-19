@@ -1,14 +1,23 @@
-import React, {useState} from "react";
+import React from "react";
+import { FaSearch } from "react-icons/fa";
+import { Form } from "react-bootstrap";
 
-import {FaSearch} from "react-icons/fa";
-import "./SearchBar.css";
-
-export const SearchBar = () => {
-const [input, setInput] = useState("")
-return (
-<div className="input-wrapper">
-<FaSearch id="Search-icon" />
-<input placeholder="Type to search..." value={input} onChange={(e) => setInput(e.target.value)} />
-</div>
-);
+const SearchBar = ({ query, onQueryChange }) => {
+  return (
+    <div
+      className="search-bar d-flex align-items-center mb-4"
+      style={{ margin: "0 auto", maxWidth: "400px" }}
+    >
+      <FaSearch style={{ marginRight: "10px" }} />
+      <Form.Control
+        style={{ flex: "1" }}
+        type="text"
+        placeholder="Type to search..."
+        value={query}
+        onChange={(e) => onQueryChange(e.target.value)}
+      />
+    </div>
+  );
 };
+
+export default SearchBar;
