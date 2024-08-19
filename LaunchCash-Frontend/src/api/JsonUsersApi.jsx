@@ -13,12 +13,12 @@ const JsonUserApi = ({ searchQuery }) => {
           "https://jsonplaceholder.typicode.com/users"
         );
         const userList = response.data;
+        console.log(userList);
 
-        let num = 0;
         const transformedUsers = userList.map((user) => {
-          num += 1;
+          let id = user.id;
           const gender = Math.random() > 0.5 ? "male" : "female";
-          const avatarUrl = `https://xsgames.co/randomusers/avatar.php?g=${gender}&${num}`;
+          const avatarUrl = `https://xsgames.co/randomusers/avatar.php?g=${gender}&${id}`;
 
           return {
             username: user.username,
