@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { AuthUser } from "../services/AuthService";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 
 const JsonUserApi = ({ searchQuery }) => {
   const [users, setUsers] = useState([]);
+  const [friends, setFriends] = useState([]);
+  const currentUser = AuthUser();
+  const cuName = currentUser.username;
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        const userList = response.data;
+        const [userResponse, friendResponse] = await Promise.all([
+          axios.get("https://jsonplaceholder.typicode.com/users"),
+          axios.get("http://localhost:8080/api/mockUsers/return"),
+        ]);
+        const userList = userResponse.data;
+        const savedFriends = friendResponse.data;
         console.log(userList);
+        console.log(savedFriends);
 
         const transformedUsers = userList.map((user) => {
           let id = user.id;
@@ -21,14 +28,16 @@ const JsonUserApi = ({ searchQuery }) => {
           const avatarUrl = `https://xsgames.co/randomusers/avatar.php?g=${gender}&${id}`;
 
           return {
+            id: id,
             username: user.username,
             email: user.email,
-            balance: 200,
-            avatarUrl,
+            avatar: avatarUrl,
+            isFriend: savedFriends.some((friend) => friend.id === user.id),
           };
         });
 
         setUsers(transformedUsers);
+        setFriends(savedFriends);
       } catch (err) {
         console.error("Error fetching users:", err);
       }
@@ -36,6 +45,34 @@ const JsonUserApi = ({ searchQuery }) => {
 
     fetchUsers();
   }, []);
+
+  const addFriend = async (user) => {
+    try {
+      await axios.post(`http://localhost:8080/api/user/${cuName}/friends/add`, {
+        user,
+      });
+      setFriends([...friends, user]);
+      setUsers(
+        users.map((u) => (u.id === user.id ? { ...u, isFriend: true } : u))
+      );
+    } catch (err) {
+      console.error("Error adding friend:", err);
+    }
+  };
+
+  const removeFriend = async (user) => {
+    try {
+      await axios.delete(
+        `http://localhost:8080/api/user/${cuName}/friends/remove`
+      );
+      setFriends(friends.filter((friend) => friend.id !== user.id));
+      setUsers(
+        users.map((u) => (u.id === user.id ? { ...u, isFriend: false } : u))
+      );
+    } catch (err) {
+      console.error("Error removing friend:", err);
+    }
+  };
 
   const filteredUsers = users.filter(
     (user) =>
@@ -75,9 +112,19 @@ const JsonUserApi = ({ searchQuery }) => {
                 <Card.Title>{user.username}</Card.Title>
                 <Card.Text>Email: {user.email}</Card.Text>
                 <div className="d-grid gap-2">
-                  <Button variant="primary" className="m-2">
-                    Add Friend
-                  </Button>
+                  {user.isFriend ? (
+                    <Button
+                      variant="danger"
+                      className="m-2"
+                      onClick={() => removeFriend(user)}
+                    >
+                      Remove Friend
+                    </Button>
+                  ) : (
+                    <Button variant="primary" className="m-2">
+                      Add Friend
+                    </Button>
+                  )}
                   <div className="d-block">
                     <Button
                       variant="success"

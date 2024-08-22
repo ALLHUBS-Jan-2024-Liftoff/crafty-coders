@@ -49,7 +49,7 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/{username}/friends")
+    @PostMapping("/{username}/friends/add")
     public ResponseEntity<String> addFriend(@PathVariable String username, @RequestParam String friendName) {
         User existingUser = userRepository.findByUsername(username);
         if (existingUser == null) {
@@ -70,7 +70,29 @@ public class UserController {
         }
     }
 
-    @GetMapping("/{username}/friends")
+    @DeleteMapping("/{username}/friends/remove")
+    public ResponseEntity<String> removeFriend(@PathVariable String username,
+                                             @RequestParam String friendName) {
+        User existingUser = userRepository.findByUsername(username);
+        if (existingUser == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
+        }
+
+        User friendUser = userRepository.findByUsername(friendName);
+        if (friendUser == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Friendly user not found.");
+        }
+
+        try {
+            existingUser.removeFriend(friendUser);
+            userRepository.save(existingUser);
+            return ResponseEntity.ok("Ejected {friendName} into space.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/{username}/friends/get")
     public ResponseEntity<Set<User>> getFriends(@PathVariable String username) {
         User user = userRepository.findByUsername(username);
         if (user == null) {

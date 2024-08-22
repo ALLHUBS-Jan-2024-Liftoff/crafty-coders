@@ -6,6 +6,24 @@ import "./assets/Friends.css";
 
 const Friends = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [friends, setFriends] = useState([]);
+  const currentUser = AuthUser();
+  const cuName = currentUser.username;
+
+  useEffect(() => {
+    const fetchFriends = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/api/user/${cuName}/friends/remove`
+        ); // Assuming user ID is 1
+        setFriends(response.data);
+      } catch (err) {
+        console.error("Error fetching friends:", err);
+      }
+    };
+
+    fetchFriends();
+  }, []);
 
   return (
     <Tabs

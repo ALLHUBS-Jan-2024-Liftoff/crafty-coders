@@ -55,6 +55,10 @@ public class User {
         friends.add(friend);
     }
 
+    public void removeFriend(User friend) {
+        friends.remove(friend);
+    }
+
     public Long getId() {
         return id;
     }
