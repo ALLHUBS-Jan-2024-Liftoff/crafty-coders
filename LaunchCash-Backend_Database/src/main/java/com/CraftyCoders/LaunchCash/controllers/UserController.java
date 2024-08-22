@@ -1,7 +1,7 @@
 package com.CraftyCoders.LaunchCash.controllers;
 
 import com.CraftyCoders.LaunchCash.repositories.UserRepository;
-import com.CraftyCoders.LaunchCash.models.dto.User;
+import com.CraftyCoders.LaunchCash.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +16,8 @@ import java.util.*;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+
+
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -47,31 +49,43 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/find-user")
-    public User getUser(@RequestParam String username) {
-         return userRepository.findByUsername(username);
+    @PostMapping("/{username}/friends")
+    public ResponseEntity<String> addFriend(@PathVariable String username, @RequestParam String friendName) {
+        User existingUser = userRepository.findByUsername(username);
+        if (existingUser == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
+        }
+
+        User friendUser = userRepository.findByUsername(friendName);
+        if (friendUser == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Friendly user not found.");
+        }
+
+        try {
+            existingUser.addFriend(friendUser);
+            userRepository.save(existingUser);
+            return ResponseEntity.ok("Friend added successfully.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
-//    @GetMapping("/search")
-//    public ResponseEntity<?> searchForUser(@RequestParam String username) {
-//        User foundUser = userRepository.findByUsername(username);
-//
-//        if (!(foundUser == null)) {
-//            return ResponseEntity.ok(foundUser.get());
-//        } else {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No user was found by that name");
-//    }
+    @GetMapping("/{username}/friends")
+    public ResponseEntity<Set<User>> getFriends(@PathVariable String username) {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(user.getFriends());
+    }
+
+    @GetMapping("/get-all")
+    public ResponseEntity<List<User>> getAllUsers() {
+        try {
+            List<User> users = userRepository.findAll();
+            return ResponseEntity.ok(users);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
+    }
 }
-
-//    @GetMapping("edit/{id}")
-//    public String editUser(@PathVariable("id") Long id, Model model){
-//        model.addAttribute("user", userRepository.getReferenceById(id));
-//        return "user/form";
-//    }
-//    @PostMapping("delete/{id}")
-//    public String deleteUser(@PathVariable("id") Long id){
-//        userRepository.deleteById(id);
-//        return "redirect:/users";
-//    }
-
-

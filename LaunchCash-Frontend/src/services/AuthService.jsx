@@ -1,6 +1,5 @@
 export const AuthUser = () => {
   const user = localStorage.getItem("user");
-  console.log("Z", user);
 
   if (!user) {
     return {};
