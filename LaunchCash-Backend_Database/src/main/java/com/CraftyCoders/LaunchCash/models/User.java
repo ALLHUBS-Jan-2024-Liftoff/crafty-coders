@@ -1,9 +1,13 @@
-package com.CraftyCoders.LaunchCash.models.dto;
+package com.CraftyCoders.LaunchCash.models;
 
 //import com.CraftyCoders.LaunchCash.models.Profile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.stereotype.Indexed;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Indexed
@@ -21,12 +25,16 @@ public class User {
     @NotEmpty
     private String email;
 
-//    private String role;
-
     private double balance = 200;
 
-//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Profile profile;
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "user_friends",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id")
+    )
+    private Set<User> friends = new HashSet<>();
 
     public User() {
     }
@@ -35,6 +43,16 @@ public class User {
         this.username = username;
         this.hashedPassword = hashedPassword;
         this.email = email;
+    }
+
+    public void addFriend(User friend) {
+//        if (this.equals(friend.getUser())) {
+//            throw new IllegalArgumentException("A user cannot add themselves as a friend.");
+//        }
+//        if (friends.stream().anyMatch(existingFriend -> existingFriend.getFriendId().equals(friend.getFriendId()))) {
+//            throw new IllegalArgumentException("This friend is already added.");
+//        }
+        friends.add(friend);
     }
 
     public Long getId() {
@@ -77,16 +95,13 @@ public class User {
         this.hashedPassword = hashedPassword;
     }
 
-//    public String getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(String role) {
-//        this.role = role;
-//    }
+    public Set<User> getFriends() {
+        return friends;
+    }
 
-    //public boolean isMatchingPassword(String password) {
-      //  return encoder.matches(password, hashedPassword);
+    public void setFriends(Set<User> friends) {
+        this.friends = friends;
+    }
 }
 
 
