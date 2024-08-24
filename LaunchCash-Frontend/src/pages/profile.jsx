@@ -20,18 +20,6 @@ const Profile = () => {
   };
 
   return (
-    // <>
-    //   <div className="hello-user">
-    //     <h1>Hello, {username}!</h1>
-    //   </div>
-    //   <div>
-    //     <h2>Balance: ${balance}</h2>
-    //   </div>
-    //   <div>
-    //     <button onClick={logout}>Logout</button>
-    //   </div>
-    // </>
-
     <Container className="my-4">
       <Row className="justify-content-center">
         <Col md={4} className="d-flex justify-content-center mb-4">

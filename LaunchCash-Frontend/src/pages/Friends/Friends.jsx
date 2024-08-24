@@ -14,8 +14,8 @@ const Friends = () => {
     const fetchFriends = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/user/${cuName}/friends/remove`
-        ); // Assuming user ID is 1
+          `http://localhost:8080/api/user/${cuName}/friends/get`
+        );
         setFriends(response.data);
       } catch (err) {
         console.error("Error fetching friends:", err);
@@ -24,6 +24,34 @@ const Friends = () => {
 
     fetchFriends();
   }, []);
+
+  const handleAddFriend = async (friend) => {
+    try {
+      await axios.post(`http://localhost:8080/api/user/${cuName}/friends/add`, {
+        user,
+      });
+      setFriends([...friends, user]);
+      setUsers(
+        users.map((u) => (u.id === user.id ? { ...u, isFriend: true } : u))
+      );
+    } catch (err) {
+      console.error("Error adding friend:", err);
+    }
+  };
+
+  const handleRemoveFriend = async (user) => {
+    try {
+      await axios.delete(
+        `http://localhost:8080/api/user/${cuName}/friends/remove`
+      );
+      setFriends(friends.filter((friend) => friend.id !== user.id));
+      setUsers(
+        users.map((u) => (u.id === user.id ? { ...u, isFriend: false } : u))
+      );
+    } catch (err) {
+      console.error("Error removing friend:", err);
+    }
+  };
 
   return (
     <Tabs
@@ -39,7 +67,8 @@ const Friends = () => {
           <SearchBar query={searchQuery} onQueryChange={setSearchQuery} />
           <JsonUserApi
             searchQuery={searchQuery}
-            onQueryChange={setSearchQuery}
+            handleAddFriend={handleAddFriend}
+            friends={friends}
           />
         </div>
       </Tab>

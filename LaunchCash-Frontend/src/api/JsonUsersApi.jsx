@@ -4,23 +4,17 @@ import { AuthUser } from "../services/AuthService";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 
-const JsonUserApi = ({ searchQuery }) => {
+const JsonUserApi = ({ searchQuery, handleAddFriend, handleRemoveFriend, friends }) => {
   const [users, setUsers] = useState([]);
-  const [friends, setFriends] = useState([]);
   const currentUser = AuthUser();
   const cuName = currentUser.username;
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const [userResponse, friendResponse] = await Promise.all([
-          axios.get("https://jsonplaceholder.typicode.com/users"),
-          axios.get("http://localhost:8080/api/mockUsers/return"),
-        ]);
-        const userList = userResponse.data;
-        const savedFriends = friendResponse.data;
+        const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+        const userList = response.data;
         console.log(userList);
-        console.log(savedFriends);
 
         const transformedUsers = userList.map((user) => {
           let id = user.id;
@@ -46,33 +40,13 @@ const JsonUserApi = ({ searchQuery }) => {
     fetchUsers();
   }, []);
 
-  const addFriend = async (user) => {
-    try {
-      await axios.post(`http://localhost:8080/api/user/${cuName}/friends/add`, {
-        user,
-      });
-      setFriends([...friends, user]);
-      setUsers(
-        users.map((u) => (u.id === user.id ? { ...u, isFriend: true } : u))
-      );
-    } catch (err) {
-      console.error("Error adding friend:", err);
-    }
-  };
+  const makeFriends = users.map((user) => {
+    const postMockUsers = await axios.post("http://localhost:8080/api/mockUsers", {
+      user,
+    })
+  })
 
-  const removeFriend = async (user) => {
-    try {
-      await axios.delete(
-        `http://localhost:8080/api/user/${cuName}/friends/remove`
-      );
-      setFriends(friends.filter((friend) => friend.id !== user.id));
-      setUsers(
-        users.map((u) => (u.id === user.id ? { ...u, isFriend: false } : u))
-      );
-    } catch (err) {
-      console.error("Error removing friend:", err);
-    }
-  };
+  }
 
   const filteredUsers = users.filter(
     (user) =>
@@ -116,12 +90,12 @@ const JsonUserApi = ({ searchQuery }) => {
                     <Button
                       variant="danger"
                       className="m-2"
-                      onClick={() => removeFriend(user)}
+                      onClick={handleRemoveFriend}
                     >
                       Remove Friend
                     </Button>
                   ) : (
-                    <Button variant="primary" className="m-2">
+                    <Button variant="primary" className="m-2" onClick={handleAddFriend}>
                       Add Friend
                     </Button>
                   )}
