@@ -2,6 +2,10 @@ package com.CraftyCoders.LaunchCash.controllers;
 
 import com.CraftyCoders.LaunchCash.repositories.UserRepository;
 import com.CraftyCoders.LaunchCash.models.User;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,42 +15,77 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174", allowCredentials = "true")
 @RequestMapping("/api/user")
 public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public User saveUser(@RequestParam String username,
-                         @RequestParam String email,
-                         @RequestParam String password) {
+    public ResponseEntity<?> saveUser(@RequestParam String username,
+                                      @RequestParam String email,
+                                      @RequestParam String password,
+                                      @NotNull HttpServletResponse response) {
         User newUser = new User();
         String hashedPassword = passwordEncoder.encode(password);
         newUser.setEmail(email);
         newUser.setUsername(username);
         newUser.setHashedPassword(hashedPassword);
-        return userRepository.save(newUser);
+        userRepository.save(newUser);
+
+        Cookie sessionCookie = new Cookie("user_session", newUser.getId().toString());
+        sessionCookie.setHttpOnly(true);
+        sessionCookie.setPath("/");
+        sessionCookie.setMaxAge(86400);
+        response.addCookie(sessionCookie);
+
+        return ResponseEntity.ok(newUser);
     }
 
     @GetMapping("/login")
     public ResponseEntity<?> loginUser(@RequestParam String username,
-                                       @RequestParam String password) {
+                                       @RequestParam String password,
+                                       @CookieValue(value = "user_session",
+                                               defaultValue = "")
+                                       String userSessionCookie,
+                                       HttpServletResponse response) {
         User existingUser = userRepository.findByUsername(username);
 
         if (existingUser == null || !passwordEncoder.matches(password, existingUser.getHashedPassword())) {
-            throw new IllegalArgumentException("Username or password incorrect.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Username or password incorrect.");
         }
 
-        Map<String, Object> response = new HashMap<>();
-        response.put("user", existingUser);
+        if (!userSessionCookie.isEmpty()) {
+            Long userId = Long.parseLong(userSessionCookie);
+            User sessionUser = userRepository.findById(userId).orElse(null);
+            if (sessionUser != null) {
+                return ResponseEntity.ok(sessionUser);
+            }
+        }
 
-        return ResponseEntity.ok(response);
+        Cookie sessionCookie = new Cookie("user_session", existingUser.getId().toString());
+        sessionCookie.setHttpOnly(true);
+        sessionCookie.setPath("/");
+        sessionCookie.setMaxAge(86400);
+        response.addCookie(sessionCookie);
+
+        return ResponseEntity.ok(existingUser);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().invalidate();
+
+        Cookie cookie = new Cookie("user_session", null);
+        cookie.setPath("/");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+
+        return ResponseEntity.ok("Logged out successfully.");
     }
 
     @PostMapping("/{username}/friends")
@@ -78,14 +117,6 @@ public class UserController {
         }
         return ResponseEntity.ok(user.getFriends());
     }
-
-    @GetMapping("/get-all")
-    public ResponseEntity<List<User>> getAllUsers() {
-        try {
-            List<User> users = userRepository.findAll();
-            return ResponseEntity.ok(users);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(null);
-        }
-    }
 }
+
+

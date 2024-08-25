@@ -2,9 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
+import { useUser } from "../pages/LoginRegister/components/UserContext";
 
-const JsonUserApi = ({ searchQuery }) => {
+const JsonUserApi = ({
+  searchQuery,
+  handleAddFriend,
+  handleRemoveFriend,
+  friends,
+}) => {
   const [users, setUsers] = useState([]);
+  const currentUser = useUser();
+  const cuName = currentUser.username;
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -21,14 +29,16 @@ const JsonUserApi = ({ searchQuery }) => {
           const avatarUrl = `https://xsgames.co/randomusers/avatar.php?g=${gender}&${id}`;
 
           return {
+            id: id,
             username: user.username,
             email: user.email,
-            balance: 200,
-            avatarUrl,
+            avatar: avatarUrl,
+            isFriend: savedFriends.some((friend) => friend.id === user.id),
           };
         });
 
         setUsers(transformedUsers);
+        setFriends(savedFriends);
       } catch (err) {
         console.error("Error fetching users:", err);
       }
@@ -36,6 +46,15 @@ const JsonUserApi = ({ searchQuery }) => {
 
     fetchUsers();
   }, []);
+
+  const makeFriends = users.map(async (user) => {
+    const postMockUsers = await axios.post(
+      "http://localhost:8080/api/mockUsers",
+      {
+        user,
+      }
+    );
+  });
 
   const filteredUsers = users.filter(
     (user) =>
@@ -75,9 +94,23 @@ const JsonUserApi = ({ searchQuery }) => {
                 <Card.Title>{user.username}</Card.Title>
                 <Card.Text>Email: {user.email}</Card.Text>
                 <div className="d-grid gap-2">
-                  <Button variant="primary" className="m-2">
-                    Add Friend
-                  </Button>
+                  {user.isFriend ? (
+                    <Button
+                      variant="danger"
+                      className="m-2"
+                      onClick={handleRemoveFriend}
+                    >
+                      Remove Friend
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="primary"
+                      className="m-2"
+                      onClick={handleAddFriend}
+                    >
+                      Add Friend
+                    </Button>
+                  )}
                   <div className="d-block">
                     <Button
                       variant="success"
