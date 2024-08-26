@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -6,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { useUser } from "./components/UserContext";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -13,27 +13,19 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const nav = useNavigate();
+  const { register } = useUser();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/user/register",
-        null,
-        {
-          params: {
-            username,
-            email,
-            password,
-          },
-        }
-      );
-      setMessage(response.data.message);
-      localStorage.setItem("user", JSON.stringify(response.data));
+      console.log(username, email, password);
+      await register(username, email, password);
       nav(`/profile/${username}`);
+
+      setMessage("Registration successful!");
     } catch (error) {
-      console.error("Error logging in:", error);
-      setMessage("Error logging in");
+      console.error("Error with registration", error);
+      setMessage("Error during registration");
     }
   };
 

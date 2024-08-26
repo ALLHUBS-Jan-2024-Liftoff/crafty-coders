@@ -1,27 +1,27 @@
-export const AuthUser = () => {
-  const user = localStorage.getItem("user");
+// export const AuthUser = () => {
+//   const user = localStorage.getItem("user");
 
-  if (!user) {
-    return {};
-  }
+//   if (!user) {
+//     return {};
+//   }
 
-  return JSON.parse(user);
-};
-
-// export const login = async (e) => {
-//   return (
-
-//   )
-// }
-
-// export const register = () => {
-//   return (
-
-//   )
+//   return JSON.parse(user);
 // };
 
-// export const logout = () => {
-//   return (
+// // export const login = async (e) => {
+// //   return (
 
-//   )
-// };
+// //   )
+// // }
+
+// // export const register = () => {
+// //   return (
+
+// //   )
+// // };
+
+// // export const logout = () => {
+// //   return (
+
+// //   )
+// // };
