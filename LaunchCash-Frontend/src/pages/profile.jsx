@@ -1,37 +1,23 @@
 import React from "react";
-import { AuthUser } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { GiAstronautHelmet } from "react-icons/gi";
+import { useUser } from "./LoginRegister/components/UserContext";
+import Button from "react-bootstrap/Button";
 
 const Profile = () => {
-  const user = AuthUser();
-  const navigate = useNavigate("");
-  console.log(user);
+  const { currentUser, logout } = useUser();
+  const nav = useNavigate("");
 
-  const username = user.username;
+  const username = currentUser.username;
+  const balance = currentUser.balance;
 
-  const balance = user.balance;
-  console.log(username);
-
-  const logout = () => {
-    localStorage.clear();
-    navigate("/");
+  const handleLogout = () => {
+    logout();
+    nav("/");
   };
 
   return (
-    // <>
-    //   <div className="hello-user">
-    //     <h1>Hello, {username}!</h1>
-    //   </div>
-    //   <div>
-    //     <h2>Balance: ${balance}</h2>
-    //   </div>
-    //   <div>
-    //     <button onClick={logout}>Logout</button>
-    //   </div>
-    // </>
-
     <Container className="my-4">
       <Row className="justify-content-center">
         <Col md={4} className="d-flex justify-content-center mb-4">
@@ -54,6 +40,9 @@ const Profile = () => {
             <Card.Body>
               <Card.Title className="fs-2">Hello, {username}!</Card.Title>
               <Card.Text className="fs-3">Balance: ${balance}</Card.Text>
+              <Button variant="danger" className="m-2" onClick={handleLogout}>
+                Logout
+              </Button>
             </Card.Body>
           </Card>
         </Col>

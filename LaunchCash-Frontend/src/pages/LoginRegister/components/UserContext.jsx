@@ -1,33 +1,65 @@
-import React, { createContext, useEffect, useState } from "react";
-import { AuthUser } from "../../../services/AuthService";
+import React, { createContext, useContext, useState } from "react";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["user_session"]);
+  const [currentUser, setCurrentUser] = useState(cookies.user_session || null);
 
-  useEffect(() => {
-    const checkUser = async () => {
-      let authUser = AuthUser();
+  const login = async (username, password) => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/user/login", {
+        params: { username, password },
+        withCredentials: true,
+      });
 
-      if (authUser === null) {
-        localStorage.setItem("user", "");
-        authUser = "";
-      }
+      const user = response.data;
+      setCookie("user_session", user, { path: "/", maxAge: 86400 });
+      setCurrentUser(user);
+      console.log("Logged in", user);
+    } catch (error) {
+      throw new Error("Login failed");
+    }
+  };
 
-      setCurrentUser(authUser);
-    };
+  const register = async (username, email, password) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/user/register",
+        null,
+        {
+          params: {
+            username,
+            email,
+            password,
+          },
+          withCredentials: true,
+        }
+      );
 
-    checkUser();
-  }, []);
+      const user = response.data;
+      console.log("Registered", user);
+      setCookie("user_session", user, { path: "/", maxAge: 86400 });
+      setCurrentUser(user);
+    } catch (error) {
+      console.error("Error during registration:", error);
+      setMessage("Error during registration");
+    }
+  };
 
-  console.log("usercontext", currentUser);
+  const logout = () => {
+    removeCookie("user_session", { path: "/" });
+    setCurrentUser(null);
+    console.log("Logged out", currentUser);
+  };
 
   return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+    <UserContext.Provider value={{ currentUser, login, register, logout }}>
       {children}
     </UserContext.Provider>
   );
 };
 
-export { UserContext };
+export const useUser = () => useContext(UserContext);

@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -6,20 +5,19 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { useUser } from "./components/UserContext";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const nav = useNavigate();
+  const { login } = useUser();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get("http://localhost:8080/api/user/login", {
-        params: { username, password },
-      });
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      await login(username, password);
       nav(`/profile/${username}`);
     } catch (error) {
       console.error("Error logging in:", error);
