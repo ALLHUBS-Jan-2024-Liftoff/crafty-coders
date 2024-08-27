@@ -25,7 +25,6 @@ public class MockUser {
         this.username = username;
         this.email = email;
         this.avatar = avatar;
-        this.isFriend = isFriend;
     }
 
     public Long getId() {

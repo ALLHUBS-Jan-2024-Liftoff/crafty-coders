@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { AuthUser } from "../services/AuthService";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 
-const JsonUserApi = ({ searchQuery, handleAddFriend, handleRemoveFriend, friends }) => {
+const JsonUserApi = ({ searchQuery }) => {
   const [users, setUsers] = useState([]);
-  const currentUser = AuthUser();
-  const cuName = currentUser.username;
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
         const userList = response.data;
         console.log(userList);
 
@@ -22,16 +21,14 @@ const JsonUserApi = ({ searchQuery, handleAddFriend, handleRemoveFriend, friends
           const avatarUrl = `https://xsgames.co/randomusers/avatar.php?g=${gender}&${id}`;
 
           return {
-            id: id,
             username: user.username,
             email: user.email,
-            avatar: avatarUrl,
-            isFriend: savedFriends.some((friend) => friend.id === user.id),
+            balance: 200,
+            avatarUrl,
           };
         });
 
         setUsers(transformedUsers);
-        setFriends(savedFriends);
       } catch (err) {
         console.error("Error fetching users:", err);
       }
@@ -39,14 +36,6 @@ const JsonUserApi = ({ searchQuery, handleAddFriend, handleRemoveFriend, friends
 
     fetchUsers();
   }, []);
-
-  const makeFriends = users.map((user) => {
-    const postMockUsers = await axios.post("http://localhost:8080/api/mockUsers", {
-      user,
-    })
-  })
-
-  }
 
   const filteredUsers = users.filter(
     (user) =>
@@ -86,19 +75,9 @@ const JsonUserApi = ({ searchQuery, handleAddFriend, handleRemoveFriend, friends
                 <Card.Title>{user.username}</Card.Title>
                 <Card.Text>Email: {user.email}</Card.Text>
                 <div className="d-grid gap-2">
-                  {user.isFriend ? (
-                    <Button
-                      variant="danger"
-                      className="m-2"
-                      onClick={handleRemoveFriend}
-                    >
-                      Remove Friend
-                    </Button>
-                  ) : (
-                    <Button variant="primary" className="m-2" onClick={handleAddFriend}>
-                      Add Friend
-                    </Button>
-                  )}
+                  <Button variant="primary" className="m-2">
+                    Add Friend
+                  </Button>
                   <div className="d-block">
                     <Button
                       variant="success"

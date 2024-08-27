@@ -7,6 +7,7 @@ import "./assets/Friends.css";
 const Friends = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [friends, setFriends] = useState([]);
+  //const [mockUsers, setMockUsers] = useState([]);
   const currentUser = AuthUser();
   const cuName = currentUser.username;
 
@@ -28,11 +29,13 @@ const Friends = () => {
   const handleAddFriend = async (friend) => {
     try {
       await axios.post(`http://localhost:8080/api/user/${cuName}/friends/add`, {
-        user,
+        friend,
       });
-      setFriends([...friends, user]);
-      setUsers(
-        users.map((u) => (u.id === user.id ? { ...u, isFriend: true } : u))
+      setFriends([...friends, friend]);
+      setMockUsers(
+        mockUsers.map((u) =>
+          u.id === currentUser.id ? { ...u, isFriend: true } : u
+        )
       );
     } catch (err) {
       console.error("Error adding friend:", err);
@@ -45,8 +48,8 @@ const Friends = () => {
         `http://localhost:8080/api/user/${cuName}/friends/remove`
       );
       setFriends(friends.filter((friend) => friend.id !== user.id));
-      setUsers(
-        users.map((u) => (u.id === user.id ? { ...u, isFriend: false } : u))
+      setMockUsers(
+        mockUsers.map((u) => (u.id === user.id ? { ...u, isFriend: false } : u))
       );
     } catch (err) {
       console.error("Error removing friend:", err);
@@ -68,6 +71,7 @@ const Friends = () => {
           <JsonUserApi
             searchQuery={searchQuery}
             handleAddFriend={handleAddFriend}
+            handleRemoveFriend={handleRemoveFriend}
             friends={friends}
           />
         </div>

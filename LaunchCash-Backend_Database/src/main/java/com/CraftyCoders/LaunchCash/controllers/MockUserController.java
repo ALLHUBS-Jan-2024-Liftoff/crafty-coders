@@ -18,7 +18,7 @@ public class MockUserController {
     @PostMapping("/create")
     public MockUser postMockUser(@RequestBody MockUser mockUser) {return mockUserService.postMockUser(mockUser);}
 
-    @GetMapping("/return")
+    @GetMapping("/get")
     public List<MockUser> getAllMockUsers() {
         return mockUserService.getAllMockUsers();
     }
